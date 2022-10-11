@@ -70,7 +70,7 @@ import type { OpenAPIConfig } from './OpenAPI';
  * @returns CancelablePromise<T>
  * @throws ApiError
  */
-export const request = <T>(config: OpenAPIConfig, options: ApiRequestOptions, additionalOptions: AxiosRequestConfig): CancelablePromise<T> => {
+export const request = <T>(config: OpenAPIConfig, options: ApiRequestOptions, additionalOptions: AxiosRequestConfig | undefined): CancelablePromise<T> => {
 	return new CancelablePromise(async (resolve, reject, onCancel) => {
 		try {
 			const url = getUrl(config, options);
